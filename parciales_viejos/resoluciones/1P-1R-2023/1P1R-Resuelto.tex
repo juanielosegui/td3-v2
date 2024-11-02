@@ -1,0 +1,99 @@
+\documentclass[10 pt]{article}        	
+\usepackage{amsfonts, amssymb, amsmath, graphicx}
+
+\oddsidemargin=-0.5cm
+\setlength{\textwidth}{6.5in}         	
+\addtolength{\voffset}{-20pt}        	
+\addtolength{\headsep}{25pt}
+\pagestyle{myheadings}
+\markright{Juani Elosegui \hfill Resolución Primer Parcial (Recuperatorio) $\cdot$ 2023 \hfill}
+
+\begin{document}
+    \section*{Problema 1}
+        \subsection*{(a)}
+            Tengo que especificar el predicado: esHanoiValido ($v$:vector$<$vector$<$int$>>$).
+            \begin{enumerate}
+                \item Necesito que $N>2$ y que $K>2$. Son las condiciones básicas del juego. Predicado:\textit{ condicionesMinimas}
+                \item Todos los discos tienen que estar ordenados en orden descendente en todos los palos. Si hay un sólo disco en un palo, se asume que está ordenado; y si no hay ninguno, también. Predicado:\textit{ ordenados}
+                \item Si tengo $K$ palos, entonces debe haber $K$ palos en el juego. Es decir, debe haber $K$ vectores dentro del vector exterior. Predicado:\textit{ K\_palosPresentes}
+                \item Si tengo $N$ discos, quiere decir que el cardinal de todos los palos debe ser igual a $N$. Todos los discos están en algún palo. Predicado:\textit{ todosPresentes}
+                \item Todos los discos deben tener un diámetro distinto. No hay diámetros repetidos. Predicado:\textit{ diametrosDistintos}
+                \item Cada palo puede tener a lo sumo $N$ discos, ni uno más. Predicado:\textit{ capacidadMaximaN}
+            \end{enumerate}
+            esHanoiValido ($v$:vector$<$vector$<$int$>>$) $\equiv$
+            \\
+            condicionesMinimas ($v$) $\wedge$
+            \\
+            $(\forall i$:int$)(0 \leq i < |v| \Rightarrow$ ordenados ($v$)) $\wedge$
+            \\
+            Defino predicados auxiliares:
+            \begin{itemize}
+                \item condicionesMinimas ($v$) $\equiv$ 
+                \\
+                tiene3Palos ($v$) $\wedge$ tiene3Discos ($v$)
+                \begin{itemize}
+                    \item tiene3Palos ($v$:vector$<$vector$<$int$>>$) $\equiv (|v| \geq 3)$
+                    \\
+                    El tamaño debe ser mayor o igual a 3.
+                    \item tiene3Discos ($v$:vector$<$vector$<$int$>>$) $\equiv (\forall i$:int$)(0 \leq i < |v| \Rightarrow \sum^{|v[i]|-1}_{j=0}v[i][j] \geq 3)$
+                    \\
+                    La suma de todos los discos en los palos debe ser mayor o igual a tres.
+                \end{itemize}
+                \item ordenados ($v$) $\equiv$
+                \\
+                $(\forall i$:int$0 \leq i < |v| \Rightarrow$ hayUnDisco ($v$[$i$]) $\vee$ noHayDiscos ($v$[$i$]) $\vee$ ordenDec ($v$[$i$]))
+                \\
+                $\wedge$ noHayRepetidos ($v$)
+                \begin{itemize}
+                    \item hayUnDisco ($vec$:vector$<$int$>$) $\equiv (|vec| = 1)$
+                    \\
+                    Si hay un disco en algún palo, se asume que está ordenado.
+                    \item noHayDiscos  ($vec$:vector$<$int$>$) $\equiv (|vec| = 0)$
+                    \\
+                    Si no hay discos en un palo, se asume que está ordenado también.
+                    \item ordenDec ($vec$:vector$<$int$>$) $\equiv (|vec| \geq 2) \wedge (\forall k$:int$)(0 \leq k < |vec|-1 \Rightarrow v[k] \leq v[k+1])$
+                    \\
+                    Si un palo tuviese dos discos, queremos que estén ubicados en orden descendente.
+                    \item noHayRepetidos ($v$:vector$<$vector$<$int$>>$) $\equiv (\forall i$:int$)(0 \leq i < |v| \wedge |v[i]| \neq 0 \Rightarrow (\forall j$:int$)(0 \leq j \leq |v[i]|-1 \Rightarrow v[i][j] \neq v[i][j+1]))$
+                    \\
+                    Si un palo está vacío o con un elemento no lo tenemos en consideración, pero tiene más de un elemento queremos que no aparezca más de una vez en ningún palo.
+                \end{itemize}
+            \end{itemize}
+    
+    \section*{Problema 2}
+        \subsection*{(a)}
+            \begin{itemize}
+                \item $P_{c} \equiv (|vec|$ mód $2 = 0) \wedge $ningunoVacío (vec)$ \wedge (suma = 0) \wedge (i = |vec|)$ 
+                \\
+                Por la precondición de la función, el tamaño de $vec$ debe ser par y no puede haber strings vacíos. Por la precondición del bucle, $suma$ se inicializa en cero e $i$ es el tamaño de $vec$.
+
+                ningunoVacío ($v$:vector$<$string$>$) $\equiv (\forall i$:int$)(0 \leq i < |v| \Rightarrow |v[i]| > 0)$
+                \item $Q_{c} \equiv (i = 0) \wedge (suma = \sum^{|vec|-1}_{i=0}\beta(vec[i][0] = vec[i][|vec|-1])+\beta(vec[i+1][0] = vec[i+1][|vec|-1]))$
+                \\
+                $i$ terminará valiendo 0 porque se necesita que se niegue la guarda. Básicamente, lo que hace el ciclo, es que para cada índice $j$, se chequean si cumple ese índice y el índice próxim, como es $j+1$. Por eso, la sumatoria se fija si cumple un índice o el siguiente (pueden ser los dos).
+            \end{itemize}
+        \subsection*{(b)}
+            \begin{itemize}
+                \item $\mathcal{I} \equiv (0 \leq i \leq |vec|) \wedge (suma = \sum^{i-1}_{j=0}\beta(vec[j][0] = vec[j][|vec|-1])+\beta(vec[j+1][0] = vec[j+1][|vec|-1]))$
+                
+                Como sabemos que $|vec|$ mód $2 = 0$, $i$ terminará valiendo cero. 
+            \end{itemize}
+        \subsection*{(c)}
+            \begin{itemize}
+                \item Cumple con el invariante: $i = 2, |vec| = 6, vec = \{`aa', `ba', `bb', `cd', `dd', `ff'\}, suma = 3$
+                \item No cumple con el invariante: $i = 2, |vec| = 5, vec = \{`ba', `bb', `cd', `dd', `ff'\}, suma = 2$
+                \\
+                $|vec|$ no puede ser impar, y está mal $suma$, debería ser 3.
+            \end{itemize}
+        \subsection*{(d)}
+            Me piden demostrar que:
+            \[\mathcal{I} \wedge \neg B \Rightarrow Q_{c}\]
+            Esto es,
+            \[\left((0 \leq i \leq |vec|) \wedge (suma = \sum^{i-1}_{j=0}\beta(vec[j][0] = vec[j][|vec|-1])+\beta(vec[j+1][0] = vec[j+1][|vec|-1]))\right) \wedge \left(i \leq 1\right)\]
+            \[\Rightarrow \left((i = 0) \wedge (suma = \sum^{|vec|-1}_{i=0}\beta(vec[i][0] = vec[i][|vec|-1])+\beta(vec[i+1][0] = vec[i+1][|vec|-1]))\right)\]
+            \\
+            $Q_{c}: (i = 0)$ vale, porque por $\mathcal{I}: (0 \leq i \leq |vec|)$ y $\neg B: (i \leq 1)$ concluimos que $0 \leq i \leq 1 \Rightarrow i:[0, 1]$
+            \\
+            $Q_{c}: (\left((i = 0) \wedge (suma = \sum^{|vec|-1}_{i=0}\beta(vec[i][0] = vec[i][|vec|-1])+\beta(vec[i+1][0] = vec[i+1][|vec|-1]))\right))$ vale, porque se cumple que de $\mathcal{I}: (suma = \ldots)$ da el mismo resultado si $i = 0$ ó si $i = 1$.
+
+\end{document}

@@ -1,0 +1,35 @@
+\documentclass[12 pt]{article}        	
+\usepackage{amsfonts, amssymb, amsmath, graphicx, pgfplots, tikz}
+\pgfplotsset{compat=1.17}
+
+\oddsidemargin=-0.5cm
+
+\setlength{\textwidth}{6.5in}         	
+\addtolength{\voffset}{-20pt}        	
+\addtolength{\headsep}{25pt}
+
+\pagestyle{myheadings}
+
+\markright{Juani Elosegui \hfill Práctica 7 \hfill}
+
+\begin{document}
+
+\section*{(1) Análisis de algoritmos}
+    \begin{itemize}
+        \item \textbf{Ordenar una secuencia ya ordenada.} No es necesario usar ningún algoritmo de ordenamiento, justamente porque ya está ordenada.
+        \item \textbf{Insertar $k$ elementos en su posición en una secuencia $v$ ordenada,
+        con $k$ significativamente más chico que $|v|$.}
+        \item \textbf{Encontrar los $k$ elementos más chicos de la secuencia $v$, con $k$
+        significativamente más chico que $|v|$.} No usaría ningún algoritmo, sólo devolvería el vector en el rango de $k$ estipulado.
+    \end{itemize}
+
+    \begin{itemize}
+        \item \textbf{Dadas dos secuencias ordenadas, devolver una secuencia que
+        contenga sus elementos ordenados.} Usaría sólo la función \texttt{merge} que se usa en el algoritmo Merge Sort.
+        \item \textbf{Ordenar una secuencia que está ordenada de forma decreciente.} No usaría ningún algoritmo de ordenamiento especial, si no que usaría la función \texttt{swap} del primero con el último, y así sucesivamente.
+        \item \textbf{Encontrar los $k$ elementos más grandes de una secuencia $v$, con $k$
+        significativamente más chico que $|v|$.} No usaría ningún algoritmo de ordenamiento, si no que devolvería el rango del vector desde \texttt{v[|v|-1-k]} hasta \texttt{v[|v|-1]}.
+        \item \textbf{Ordenar una secuencia $v$ en el que sus elementos están desordenados en a lo sumo $k$ posiciones, con $k$ signiﬁcativamente más chico que $|v|$.} Usaría cualquier algoritmo de ordenamiento en la parte desordenada, preferentemente el más rápido.
+    \end{itemize}
+
+\end{document}

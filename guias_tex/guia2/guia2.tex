@@ -1,0 +1,84 @@
+\documentclass[12 pt]{article}        	
+\usepackage{amsfonts, amssymb, amsmath}
+
+\oddsidemargin=-0.5cm
+
+\setlength{\textwidth}{6.5in}         	
+\addtolength{\voffset}{-20pt}        	
+\addtolength{\headsep}{25pt}
+
+\pagestyle{myheadings}
+
+\markright{Juani Elosegui\hfill \today \hfill}
+
+\begin{document}
+
+\subsection*{Ejercicio 1}
+    \subsubsection*{a)}
+        If $cond =$ True then $n + m > 10$ fi
+    \subsubsection*{b)}
+        $(m > 0) \vee (x = 3,14) \wedge \neg (m > 0 \wedge x = 3,14) $
+    \subsubsection*{c)}
+        If $(|v| > 0) \wedge (v[0] = 5)$ then $str =$ "Hola" fi \\
+        Hay que aclarar que el vector no puede estar vacío para que no quede indefinido.
+    \subsubsection*{d)}
+        $|v| > 0 \Rightarrow v[0] - m = n$ \\
+        Hay que aclarar que el vector no puede estar vacío para que no quede indefinido.
+
+\subsection*{Ejercicio 2}
+    \begin{itemize}
+        \item Indefinido (división por cero)
+        \item Falso ($vec[3] = 0$)
+        \item Indefinido (no existe $vec[5]$)
+        \item Falso (True $\Rightarrow$ False $\equiv$ False)
+    \end{itemize}
+
+\subsection*{Ejercicio 3}
+    \subsubsection*{a)}
+        $(\nexists i:int)(0 \leq i < |str|) \Rightarrow (str[i] =$ 'x'$)$
+    \subsubsection*{b)}
+        $(\forall i:int)(\exists m:int)(0 \leq i < |m|)(0 \leq m < |vec|) \Rightarrow v[i] = 0$
+    \subsubsection*{c)}
+        $(\forall i:int)(0 \leq i < |vec|) \Rightarrow m < \sum_{i}^{|vec|-1} v[i] < n$
+    \subsubsection*{d)}
+        $(\exists m:int)(0 \leq m < |vec|) \Rightarrow esMaximo(vec, m)$\\
+        $esMaximo($vector$<$int$>$ v, int m$) \equiv (\forall i:int)(0 \leq i < |v|) \Rightarrow v[i] \leq v[m]$
+
+\subsection*{Ejercicio 5}
+    \subsubsection*{a)}
+        contarPares($v$:vector$<$int$>$):int $\equiv \sum^{|v|-1}_{i=0}(\beta($esPar$(v[i]))$\\
+        esPar($i$:int):bool $\equiv$ true $\Leftrightarrow i$ mod $2 = 0$
+    \subsubsection*{b)}
+        sumarPrimosHastaI($v$:vector$<$int$>$, $i$:int):int $\equiv \sum^{i}_{j=0}(v[i] \cdot \beta($esPrimo$(v[i])))$
+    \subsubsection*{c)}
+        promedio($v$:vector$<$float$>$):float $\equiv \frac{1}{|v|-1} \cdot \sum^{|v|-1}_{i=0}$
+    \subsubsection*{d)}
+        contarVocales($txt$:vector$<$char$>$):int $\equiv \sum^{|txt|-1}_{i=0}\beta($esVocal$(txt[i]))$\\
+        esVocal($c$:char):bool $\equiv$ True $\Leftrightarrow (c =$'a'$)\vee(c =$'e'$)\vee(c =$'i'$)\vee(c =$'o'$)\vee(c =$'u'$)$
+
+\subsection*{Ejercicio 6}
+    \subsubsection*{a)}
+        string n\_asteriscos(int $n$)\\
+        Pre: $(n \geq 0)$\\
+        Post: $(|res| = n) \wedge$ sonTodosAsteriscos(res)\\
+        \\
+        sonTodosAsteriscos($s$:string):bool $\equiv$ True $\Leftrightarrow (\forall i:$int$)(0 \leq i < |res| \Rightarrow res[i] =$'*'$)$
+    \subsubsection*{b)}
+        int cantidad\_a(string $s$)\\
+        Pre: $\top$\\
+        Post: $res =$contar\_a($s$)\\
+        \\
+        contar\_a($s$:string):int $\equiv \sum^{|s|-1}_{i=0}\beta($es\_A$(s[i]))$\\
+        es\_A(char $c$):bool $\equiv$ if $(c =$'a') then True else False fi
+    \subsubsection*{c)}
+        vector$<$int$>$ rep\_base2(int $n$)\\
+        Pre: $n \geq 0$\\
+        Post: $(|res| =$ parteEntera($n$)+1$) \wedge (\forall i:$int$)(0 \leq i < |res| \Rightarrow res[i] =\frac{n}{2^{|res|-i}mod2})$\\
+        \\
+        parteEntera($n$:int):int $\equiv$ max\{$k \in Z:k \leq n$\}
+    \subsubsection*{d)}
+        int trans\_base2(vector$<$int$>$ $v$)\\
+        Pre: $(|v| > 0) \wedge (\forall i$:int$)(0 \leq i < |v| \Rightarrow$ esCero($v[i]$) $\vee$ esUno($v[i]$)$)$\\
+        Post: res = $\sum^{|v|-1}_{i=0}(v[i]\cdot2^{|v|-i})$
+
+\end{document}

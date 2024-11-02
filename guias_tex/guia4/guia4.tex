@@ -1,0 +1,235 @@
+\documentclass[12 pt]{article}        	
+\usepackage{amsfonts, amssymb, amsmath, graphicx, pgfplots, tikz}
+\pgfplotsset{compat=1.17}
+
+\oddsidemargin=-0.5cm
+
+\setlength{\textwidth}{6.5in}         	
+\addtolength{\voffset}{-20pt}        	
+\addtolength{\headsep}{25pt}
+
+\pagestyle{myheadings}
+
+\markright{Juani Elosegui \hfill \today \hfill}
+
+\begin{document}
+
+    \subsection*{Ejercicio 8}
+        \subsubsection*{(a)}
+            Quiero verificar que:
+            \[0 \leq 12n+3 \leq c \cdot n^{2} (\forall n \geq n_{0})\]
+            \\
+            Como la función es estrictamente creciente, se cumple siempre que \(0 \leq 12n+3\) con \(n_{0} > 0\).
+            \\
+            Si despejamos $c$, obtenemos que:
+            \[\frac{12n}{n^{2}}+\frac{3}{n^{2}} \leq c\]
+            \[\frac{12}{n}+\frac{3}{n^{2}} \leq c\]
+            \\
+            Si tomamos que $n_{0} = 1, c = 15$, la desigualdad vale para todo $n \geq n_{0}$.
+
+            \begin{center}
+                \begin{tikzpicture}
+                    \begin{axis}[
+                        domain=0:5,   % Rango del eje x
+                        samples=100,  % Número de muestras para suavidad
+                        axis lines=middle, % Dibujar los ejes en el centro
+                        xlabel={$n$}, % Etiqueta del eje x
+                        legend style={at={(1.05,1)}, anchor=north west}, % Posición de la leyenda
+                        width=10cm, height=7cm, % Tamaño del gráfico
+                        ]
+                        % Graficar la función 12n + 3
+                        \addplot[blue, thick] {12*x + 3};
+                        \addlegendentry{$12n + 3$}
+            
+                        % Graficar la función n^2
+                        \addplot[red, thick, dashed] {15*x^2};
+                        \addlegendentry{$15n^2$}
+                    \end{axis}
+                \end{tikzpicture}                
+            \end{center}
+
+            Entonces es \textbf{verdadera}.
+        
+        \subsubsection*{(b)}
+            Quiero verificar que:
+            \[0 \leq n^{2}+5n^{3} \leq c \cdot n^{2} (\forall n \geq n_{0})\]
+            \\
+            Se va a cumplir siempre que \(0 \leq n^{2}+5n^{3}\) porque la función es estrictamente creciente.
+            \\
+            Si despejamos $c$, obtenemos que:
+            \[\frac{n^{2}+5n^{3}}{n^{2}} \leq c\]
+            \[1 + 5n \leq c\]
+            \\
+            Si tomamos que \(n_{0} = 1, c = 6\), la desigualdad NO vale para todo \(n \geq n_{0}\).
+
+            \begin{center}
+                \begin{tikzpicture}
+                    \begin{axis}[
+                        domain=0:5,
+                        samples=100,
+                        axis lines=middle,
+                        xlabel={$n$},
+                        legend style={at={(1.05,1)}, anchor=north west},
+                        width=10cm, height=7cm,
+                        ]
+    
+                        \addplot[blue, thick] {x^2+5*x^3};
+                        \addlegendentry{$n^{2}+5n^{3}$}
+            
+                        \addplot[red, thick, dashed] {6*x^2};
+                        \addlegendentry{$6n^2$}
+                    \end{axis}
+                \end{tikzpicture}                
+            \end{center}
+
+            Entonces es \textbf{falsa}.
+
+        \subsubsection*{(c)}
+            Quiero verificar que:
+            \[0 \leq 2^{n}+5 \leq c \cdot n^{10} (\forall n \geq n_{0})\]
+            \\
+            Vale que \(0 \leq 2^{n}+5\) ya que esta función es siempre positiva y creciente.
+            \\
+            Si despejamos $c$, obtenemos que:
+            \[\frac{2^{n}+5}{n^{10}} \leq c\]
+            \\
+            Si tomamos que \(n_{0} = 1, c = 7\), se cumple siempre la desigualdad.
+
+            \begin{center}
+                \begin{tikzpicture}
+                    \begin{axis}[
+                        domain=0:7,          % Rango del eje x
+                        samples=100,         % Número de muestras para suavidad
+                        axis lines=middle,   % Dibujar los ejes en el centro
+                        xlabel={$n$},        % Etiqueta del eje x
+                        ylabel={$f(n)$},     % Etiqueta del eje y
+                        legend style={at={(1.05,1)}, anchor=north west}, % Posición de la leyenda
+                        width=10cm, height=7cm, % Tamaño del gráfico
+                        ymode=log,           % Usa escala logarítmica en el eje y
+                        ymin=1,              % Establecer mínimo en el eje y
+                        ymax=300,            % Establecer máximo en el eje y
+                        ]
+                        % Graficar la función 2^n + 5
+                        \addplot[blue, thick] {2^x + 5};
+                        \addlegendentry{$2^n + 5$}
+            
+                        % Graficar la función n^10
+                        \addplot[red, thick, dashed] {7*x^10};
+                        \addlegendentry{$7n^{10}$}
+                    \end{axis}
+                \end{tikzpicture}
+            \end{center}
+
+            Entonces es \textbf{verdadera}.
+
+        \subsubsection*{(d)}
+            Quiero verificar que:
+            \[0 \leq \sqrt{n} \leq c \cdot n \]
+            \\
+            Se cumple que \(0 \leq \sqrt(n)\) porque es mayor o igual a cero.
+            \\
+            Si despejamos $c$, tenemos que:
+            \[\frac{\sqrt{n}}{n} \leq c\]
+            \[\frac{1}{\sqrt{n}} \leq c\]
+            \\
+            Si tomamos \(n_{0} = 1, c = 1\), se cumple siempre la desigualdad.
+
+            \begin{center}
+                \begin{tikzpicture}
+                    \begin{axis}[
+                        domain=0:5,              % Rango del eje x
+                        samples=100,             % Número de muestras para suavidad
+                        axis lines=middle,       % Dibujar los ejes en el centro
+                        xlabel={$n$},            % Etiqueta del eje x
+                        ylabel={$f(n)$},         % Etiqueta del eje y
+                        legend style={at={(1.05,1)}, anchor=north west}, % Posición de la leyenda
+                        width=10cm, height=7cm,  % Tamaño del gráfico
+                        ]
+                        \addplot[blue, thick] {x^(1/2)};
+                        \addlegendentry{$\sqrt{n}$}
+                
+                        \addplot[red, thick, dashed] {x};
+                        \addlegendentry{$n$}
+                    \end{axis}
+                \end{tikzpicture}
+            \end{center}
+            
+            Entonces es \textbf{verdadera}.
+
+        \subsubsection*{(e)}
+            Quiero verificar que:
+            \[0 \leq n \leq c \cdot \sqrt{n} (\forall n \geq n_{0})\]
+            \\
+            \(0 \leq n\) se cumple ya que es cero y estrictamente creciente.
+            \\
+            Si despejamos $c$, tenemos que:
+            \[\frac{n}{\sqrt{n}} \leq c\]
+            \[\sqrt{n} \leq c\]
+            \\
+            Si tomamos \(n_{0} = 1, c = 1\) se cumple esta desigualdad, pero no siempre.
+
+            \begin{center}
+                \begin{tikzpicture}
+                    \begin{axis}[
+                        domain=0:5,              % Rango del eje x
+                        samples=100,             % Número de muestras para suavidad
+                        axis lines=middle,       % Dibujar los ejes en el centro
+                        xlabel={$n$},            % Etiqueta del eje x
+                        ylabel={$f(n)$},         % Etiqueta del eje y
+                        legend style={at={(1.05,1)}, anchor=north west}, % Posición de la leyenda
+                        width=10cm, height=7cm,  % Tamaño del gráfico
+                        ]
+                        \addplot[blue, thick] {x};
+                        \addlegendentry{$n$}
+                
+                        \addplot[red, thick, dashed] {x^(1/2)};
+                        \addlegendentry{$\sqrt{n}$}
+                    \end{axis}
+                \end{tikzpicture}
+            \end{center}
+
+            Como se cumple la desigualdad hasta $n_{0} = 1$, de ahí en adelante no se cumple más, por lo que es \textbf{falsa}.
+
+        \subsubsection*{(f)}
+            Quiero verificar que:
+            \[0 \leq n \leq c \cdot \log_{2}{n} (\forall n \geq n_{0})\]
+            \\
+            Se cumple que \(0 \leq n\) porque es cero y creciente.
+            \\
+            Si despejamos $c$, tenemos que:
+            \[\frac{n}{\log_{2}{n}} \leq c\]
+            \\
+            Si tomamos \(n_{0} = 2, c = 2\) se cumple la desigualdad, pero no siempre.
+
+            \begin{center}
+                \begin{tikzpicture}
+                    \begin{axis}[
+                        domain=0:5,              % Rango del eje x
+                        samples=100,             % Número de muestras para suavidad
+                        axis lines=middle,       % Dibujar los ejes en el centro
+                        xlabel={$n$},            % Etiqueta del eje x
+                        ylabel={$f(n)$},         % Etiqueta del eje y
+                        legend style={at={(1.05,1)}, anchor=north west}, % Posición de la leyenda
+                        width=10cm, height=7cm,  % Tamaño del gráfico
+                        ]
+                        \addplot[blue, thick] {x};
+                        \addlegendentry{$n$}
+                
+                        \addplot[red, thick, dashed] {2*ln(x)/ln(2)};
+                        \addlegendentry{$2\log_{2}{n}$}
+                    \end{axis}
+                \end{tikzpicture}
+            \end{center}
+
+            Entonces es \textbf{falso}.
+
+    \subsection*{Ejercicio 9}
+        \subsubsection*{(a)}
+            Sabemos que el tamaño de entrada es $n = k$, y el peor caso es si el número $k$ no tiene una raíz cuadrada exacta.
+            \\
+            La función de costo temporal es \(T(n) = O(\sqrt{n})\)
+        \subsubsection*{(b)}    
+            Sabemos que el tamaño de entrada es $n = c$, y el peor caso es justamente cuando $n = c$.
+            \\
+            La función de costo temporal es \(T(n) = O(n)\)
+\end{document}
