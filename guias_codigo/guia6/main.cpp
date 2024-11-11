@@ -1,9 +1,9 @@
 #include <iostream>
-#include "classes/Libro.h"
-#include "classes/Fecha.h"
-#include "classes/Usuario.h"
-#include "classes/Multiconjunto.h"
-#include "classes/Carrito.h"
+#include "Libro.h"
+#include "Fecha.h"
+#include "Usuario.h"
+#include "Multiconjunto.h"
+#include "Carrito.h"
 
 int main()
 {
