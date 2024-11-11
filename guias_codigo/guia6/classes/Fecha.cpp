@@ -3,19 +3,23 @@
 // Declaration of interface
 Fecha::Fecha(const int & dia, const int & mes, const int & anio)
 {
-    if(_dia > 0 && _dia <= 31)
-    {
-        _dia = dia;
-    }
+    _dia = dia;
+    _mes = mes;
+    _anio = anio;
 
-    if(_mes > 0 && _mes <= 12)
+    if (mes < 1 || mes > 12)
     {
-        _mes = mes;
+        throw std::invalid_argument("Mes invalido. Debe estar entre 1 y 12.");
     }
-
-    if(_anio >= 0)
+    
+    if (dia < 1 || dia > 31)
     {
-        _anio = anio;
+        throw std::invalid_argument("Dia invalido. Debe estar entre 1 y 31.");
+    }
+    
+    if (anio < 0)
+    {
+        throw std::invalid_argument("Anio invalido. Debe ser un valor positivo.");
     }
 }
 

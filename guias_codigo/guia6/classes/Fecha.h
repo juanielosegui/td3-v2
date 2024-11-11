@@ -1,5 +1,6 @@
-// This is the declaration of the object "Fecha".
+// This is the header of the object "Fecha".
 #include <string>
+#include <stdexcept>
 
 class Fecha
 {
@@ -20,5 +21,7 @@ class Fecha
         bool operator==(const Fecha & f) const;
 
     private:
-        int _dia, _mes, _anio;
+        int _dia;
+        int _mes;
+        int _anio;
 };

@@ -1,4 +1,4 @@
-// This is the declaration of the object "Carrito".
+// This is the header of the object "Carrito".
 #include <string>
 #include <vector>
 #include <map>

@@ -1,4 +1,4 @@
-// This is the declaration of the object "Multiconjunto".
+// This is the header of the object "Multiconjunto".
 #include <string>
 #include <vector>
 

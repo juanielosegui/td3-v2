@@ -1,4 +1,4 @@
-// This is the declaration of the object "Libro".
+// This is the header of the object "Libro".
 #include <string>
 
 class Libro

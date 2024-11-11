@@ -1,4 +1,4 @@
-// This is the declaration of the object "Usuario".
+// This is the header of the object "Usuario".
 #include <string>
 #include <set>
 
