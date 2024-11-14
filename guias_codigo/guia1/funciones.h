@@ -4,34 +4,33 @@
 #include <vector>
 #include <string>
 #include <iostream>
-using namespace std;
 
 // 2)
 void sumSign(const int & a, const int & b);
 
 // 5)
-string replaceVowelsWithA(const string & txt);
+std::string replaceVowelsWithA(const std::string & txt);
 bool sumsZero(const int & a, const int & b);
 int max(const int & a, const int & b);
-int vowelsAmt(const string & txt);
+int vowelsAmt(const std::string & txt);
 bool isVowel(const char & c);
 
 // 6)
-void closeInBrackets(string & s);
-int replaceNumber(vector<int> ls, const int & n);
+void closeInBrackets(std::string & s);
+int replaceNumber(std::vector<int> ls, const int & n);
 
 // 8)
-int sum(const vector<int> & numbers);
+int sum(const std::vector<int> & numbers);
 float fahrenheitToCelsius(const float & fahr);
 void printFahrValues30to100();
 bool isPrime(const int & n);
 void printPrimesTo100();
-bool isPalindrome(const string & s);
-string concatenateStr(const vector<string> v);
+bool isPalindrome(const std::string & s);
+std::string concatenateStr(const std::vector<std::string> v);
 
 // 9)
 enum class Color{White, Black, Red, Green, Blue};
-int redCounter(const vector<Color> & v);
+int redCounter(const std::vector<Color> & v);
 
 enum class Day{Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday};
 bool isWeekend(const Day & v);
@@ -39,30 +38,30 @@ bool isWeekend(const Day & v);
 // 10)
 struct user
 {
-    string name;
-    string email;
+    std::string name;
+    std::string email;
     int amtFollowers;
 };
 
-user newUser(const string & name, const string & mail);
+user newUser(const std::string & name, const std::string & mail);
 
 struct person
 {
-    string name;
+    std::string name;
     int age;
-    string id;
+    std::string id;
 };
 
 bool tenYearsApart(const person & a, const person & b);
 
 struct course
 {
-    string name;
+    std::string name;
     int id;
     int students;
-    string career;
+    std::string career;
 };
 
-person eldestPerson(const vector<person> & people);
+person eldestPerson(const std::vector<person> & people);
 
 #endif

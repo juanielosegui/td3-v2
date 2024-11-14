@@ -5,18 +5,18 @@
 
 void sumSign(const int & a, const int & b)
 {
-    if(a + b > 0) cout << "It is positive" << endl;
-    if(a + b < 0) cout << "It is negative" << endl;
-    if(a + b == 0) cout << "It is zero" << endl;
+    if(a + b > 0) std::cout << "It is positive" << std::endl;
+    if(a + b < 0) std::cout << "It is negative" << std::endl;
+    if(a + b == 0) std::cout << "It is zero" << std::endl;
 }
 
 // ------------------------------------------------
 // 5)
 
-string replaceVowelsWithA(const string & txt)
+std::string replaceVowelsWithA(const std::string & txt)
 {
     int i = 0;
-    string res = "";
+    std::string res = "";
     do
     {
         if(txt[i] == 'a' || txt[i] == 'e' || txt[i] == 'i' || txt[i] == 'o' || txt[i] == 'u')
@@ -43,7 +43,7 @@ int max(const int & a, const int & b)
     return b;
 }
 
-int vowelsAmt(const string & txt)
+int vowelsAmt(const std::string & txt)
 {
     // result and iteration vars
     int res = 0;
@@ -71,14 +71,14 @@ bool isVowel(const char & c)
 // ------------------------------------------------
 // 6)
 
-void closeInBrackets(string & s)
+void closeInBrackets(std::string & s)
 {
     s = '(' + s + ')';
-    cout << s << endl; 
+    std::cout << s << std::endl; 
 }
 
 
-int replaceNumber(vector<int> ls, const int & n)
+int replaceNumber(std::vector<int> ls, const int & n)
 {
     int res = 0;
     int i = 0;
@@ -96,7 +96,7 @@ int replaceNumber(vector<int> ls, const int & n)
 // ------------------------------------------------
 // 8)
 
-int sum(const vector<int> & numbers)
+int sum(const std::vector<int> & numbers)
 {
     int res = 0;
     for(int i=0; i<numbers.size(); i++)
@@ -116,9 +116,9 @@ void printFahrValues30to100()
 {
     for(int fahr=30; fahr <= 100; fahr+=10)
     {
-        cout << fahrenheitToCelsius(fahr) << ", ";
+        std::cout << fahrenheitToCelsius(fahr) << ", ";
     }
-    cout << "Done!" << endl;
+    std::cout << "Done!" << std::endl;
 }
 
 bool isPrime(const int & n)
@@ -140,12 +140,12 @@ void printPrimesTo100()
 {
     for (int i = 0; i <= 100; i++)
     {
-        if(isPrime(i)) cout << i << ", ";
+        if(isPrime(i)) std::cout << i << ", ";
     }
-    cout << "Done!" << endl;
+    std::cout << "Done!" << std::endl;
 }
 
-bool isPalindrome(const string & s)
+bool isPalindrome(const std::string & s)
 {
     if(s.size() <= 1) return true;
 
@@ -156,9 +156,9 @@ bool isPalindrome(const string & s)
     return true;
 }
 
-string concatenateStr(const vector<string> v)
+std::string concatenateStr(const std::vector<std::string> v)
 {
-    string res = "";
+    std::string res = "";
     for(int i=0; i<v.size(); i++)
     {
         for (int j=0; j<v[i].size(); j++) res.push_back(v[i][j]);
@@ -169,7 +169,7 @@ string concatenateStr(const vector<string> v)
 // ------------------------------------------------
 // 9)
 
-int redCounter(const vector<Color> & v)
+int redCounter(const std::vector<Color> & v)
 {
     int ctr = 0;
     for(int i=0; i<v.size(); i++)
@@ -190,7 +190,7 @@ bool isWeekend(const Day & d)
 // ------------------------------------------------
 // 10)
 
-user newUser(const string & name, const string & mail)
+user newUser(const std::string & name, const std::string & mail)
 {
     user User = {name, mail, 0};
     return User;
@@ -202,7 +202,7 @@ bool tenYearsApart(const person & a, const person & b)
     return false;
 }
 
-person eldestPerson(const vector<person> & people)
+person eldestPerson(const std::vector<person> & people)
 {
     person eldest = people[0];
     for(int i=0; i<people.size(); i++)
