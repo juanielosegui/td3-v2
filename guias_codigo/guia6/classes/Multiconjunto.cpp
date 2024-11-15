@@ -2,6 +2,7 @@
 
 // Declaration of interface
 <<<<<<< HEAD
+<<<<<<< HEAD
 Multiconjunto::Multiconjunto(std::vector<int> elems, int c)
 {
     _cantidad_distintos = c;
@@ -12,6 +13,12 @@ Multiconjunto::Multiconjunto()
     _cantidad_distintos = 0;
     _elementos = {};
 >>>>>>> 34bee65 (Modifiqué la guía 1)
+=======
+Multiconjunto::Multiconjunto(std::vector<int> elems, int c)
+{
+    _cantidad_distintos = c;
+    _elementos = elems;
+>>>>>>> 7832a6f (Avance guia6 mas comentarios y recomendaciones)
 }
 
 int Multiconjunto::cardinal() const
@@ -55,6 +62,7 @@ void Multiconjunto::agregar(const int & e)
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // TODO: fix
 
 void Multiconjunto::quitar(const int & e)
@@ -65,10 +73,19 @@ void Multiconjunto::quitar(const int & e)
     if(it != _elementos.end()) _elementos.erase(it);
     */
 =======
+=======
+// TODO: fix
+
+>>>>>>> 7832a6f (Avance guia6 mas comentarios y recomendaciones)
 void Multiconjunto::quitar(const int & e)
 {
+    /*
     // check if it is already in vec
     auto it = std::find(_elementos.begin(), _elementos.end(), e);
     if(it != _elementos.end()) _elementos.erase(it);
+<<<<<<< HEAD
 >>>>>>> 34bee65 (Modifiqué la guía 1)
+=======
+    */
+>>>>>>> 7832a6f (Avance guia6 mas comentarios y recomendaciones)
 }

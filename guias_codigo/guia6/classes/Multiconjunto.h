@@ -7,10 +7,14 @@ class Multiconjunto
     public:
         // Constructor
 <<<<<<< HEAD
+<<<<<<< HEAD
         Multiconjunto(std::vector<int> elems, int c);
 =======
         Multiconjunto();
 >>>>>>> 34bee65 (Modifiqué la guía 1)
+=======
+        Multiconjunto(std::vector<int> elems, int c);
+>>>>>>> 7832a6f (Avance guia6 mas comentarios y recomendaciones)
 
         // Observers
         int cardinal() const;

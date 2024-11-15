@@ -6,13 +6,19 @@
 #include "classes/Carrito.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7832a6f (Avance guia6 mas comentarios y recomendaciones)
 /*
     g++ main.cpp classes/Fecha.cpp classes/Libro.cpp classes/Usuario.cpp classes/Carrito.cpp -o main
     ./main
 */
 
+<<<<<<< HEAD
 =======
 >>>>>>> 34bee65 (Modifiqué la guía 1)
+=======
+>>>>>>> 7832a6f (Avance guia6 mas comentarios y recomendaciones)
 int main()
 {
     std::cout << "----------------------------" << std::endl;
@@ -22,9 +28,13 @@ int main()
     std::cout << "a) Crear una fecha" << std::endl;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     //  init Fecha
 =======
 >>>>>>> 34bee65 (Modifiqué la guía 1)
+=======
+    //  init Fecha
+>>>>>>> 7832a6f (Avance guia6 mas comentarios y recomendaciones)
     Fecha nac(23, 6, 2004);
     std::cout << nac.dia() << std::endl;
     std::cout << nac.mes() << std::endl;
@@ -36,6 +46,9 @@ int main()
     std::cout << nac.mes() << std::endl;
     std::cout << nac.anio() << std::endl;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7832a6f (Avance guia6 mas comentarios y recomendaciones)
 
     std::cout << std::endl;
 
@@ -83,7 +96,11 @@ int main()
     //  ask for total price
     std::cout << c.monto_total() << std::endl;  // $4.500
 
+<<<<<<< HEAD
 =======
 >>>>>>> 34bee65 (Modifiqué la guía 1)
+=======
+
+>>>>>>> 7832a6f (Avance guia6 mas comentarios y recomendaciones)
     return 0;
 }

@@ -75,15 +75,22 @@ void Carrito::borrar_item(const std::string & nombre)
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 //  Maybe adapt code to handle float values in products
 =======
 >>>>>>> 34bee65 (Modifiqué la guía 1)
+=======
+//  Maybe adapt code to handle float values in products
+>>>>>>> 7832a6f (Avance guia6 mas comentarios y recomendaciones)
 void Carrito::agregar_item(const std::string & nombre, const int & peso, const float & precio)
 {
     _items.push_back(nombre);
     _pesos_items[nombre] = peso;
     _precios_por_item[nombre] = precio;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7832a6f (Avance guia6 mas comentarios y recomendaciones)
 }
 
 float Carrito::monto_total() const
@@ -95,6 +102,9 @@ float Carrito::monto_total() const
         res += it->second;
     }
     return res;
+<<<<<<< HEAD
 =======
 >>>>>>> 34bee65 (Modifiqué la guía 1)
+=======
+>>>>>>> 7832a6f (Avance guia6 mas comentarios y recomendaciones)
 }
