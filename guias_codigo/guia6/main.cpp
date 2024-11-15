@@ -97,10 +97,13 @@ int main()
     std::cout << c.monto_total() << std::endl;  // $4.500
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 34bee65 (Modifiqué la guía 1)
 =======
 
 >>>>>>> 7832a6f (Avance guia6 mas comentarios y recomendaciones)
+=======
+>>>>>>> cf105b4 (Added changes)
     return 0;
 }
