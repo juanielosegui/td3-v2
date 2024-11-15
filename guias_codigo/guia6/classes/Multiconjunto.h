@@ -6,7 +6,11 @@ class Multiconjunto
 {
     public:
         // Constructor
+<<<<<<< HEAD
         Multiconjunto(std::vector<int> elems, int c);
+=======
+        Multiconjunto();
+>>>>>>> 34bee65 (Modifiqué la guía 1)
 
         // Observers
         int cardinal() const;

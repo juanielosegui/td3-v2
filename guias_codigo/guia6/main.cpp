@@ -5,11 +5,14 @@
 #include "classes/Multiconjunto.h"
 #include "classes/Carrito.h"
 
+<<<<<<< HEAD
 /*
     g++ main.cpp classes/Fecha.cpp classes/Libro.cpp classes/Usuario.cpp classes/Carrito.cpp -o main
     ./main
 */
 
+=======
+>>>>>>> 34bee65 (Modifiqué la guía 1)
 int main()
 {
     std::cout << "----------------------------" << std::endl;
@@ -18,7 +21,10 @@ int main()
 
     std::cout << "a) Crear una fecha" << std::endl;
 
+<<<<<<< HEAD
     //  init Fecha
+=======
+>>>>>>> 34bee65 (Modifiqué la guía 1)
     Fecha nac(23, 6, 2004);
     std::cout << nac.dia() << std::endl;
     std::cout << nac.mes() << std::endl;
@@ -29,6 +35,7 @@ int main()
     std::cout << nac.dia() << std::endl;
     std::cout << nac.mes() << std::endl;
     std::cout << nac.anio() << std::endl;
+<<<<<<< HEAD
 
     std::cout << std::endl;
 
@@ -76,5 +83,7 @@ int main()
     //  ask for total price
     std::cout << c.monto_total() << std::endl;  // $4.500
 
+=======
+>>>>>>> 34bee65 (Modifiqué la guía 1)
     return 0;
 }
