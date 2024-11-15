@@ -1,10 +1,10 @@
 #include "Multiconjunto.h"
 
 // Declaration of interface
-Multiconjunto::Multiconjunto()
+Multiconjunto::Multiconjunto(std::vector<int> elems, int c)
 {
-    _cantidad_distintos = 0;
-    _elementos = {};
+    _cantidad_distintos = c;
+    _elementos = elems;
 }
 
 int Multiconjunto::cardinal() const
@@ -47,9 +47,13 @@ void Multiconjunto::agregar(const int & e)
     if(!found) _cantidad_distintos++;
 }
 
+// TODO: fix
+
 void Multiconjunto::quitar(const int & e)
 {
+    /*
     // check if it is already in vec
     auto it = std::find(_elementos.begin(), _elementos.end(), e);
     if(it != _elementos.end()) _elementos.erase(it);
+    */
 }
