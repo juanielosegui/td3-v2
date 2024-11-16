@@ -1,0 +1,186 @@
+\documentclass[12 pt]{article}        	
+\usepackage{amsfonts, amssymb, amsmath, graphicx}
+
+\oddsidemargin=-0.5cm
+
+\setlength{\textwidth}{6.5in}         	
+\addtolength{\voffset}{-20pt}        	
+\addtolength{\headsep}{25pt}
+
+\pagestyle{myheadings}
+
+\markright{Juani Elosegui \hfill \today \hfill}
+
+\begin{document}
+
+\subsection*{Ejercicio 1}
+    \subsubsection*{(a)}
+        El invariante de representación correcto es el segundo.
+        \\
+        $Rep(e:estr) \equiv (|e.titulo| > 0) \wedge (|e.autor| > 0) \wedge (e.paginas\_totales > 0) \wedge (0 < e.pagina\_actual \leq e.paginas\_totales)$
+    \subsubsection*{(b)}
+        Lo cumple:
+        \begin{itemize}
+            \item $e_{1} \equiv $ ("Ana Karenina", León Tólstoi, 330 páginas, página actual 144)
+        \end{itemize}
+        No lo cumple:
+        \begin{itemize}
+            \item $e_{2} \equiv $ ("", J.K. Rowling, 155 páginas, página actual 177)
+        \end{itemize}
+    \subsubsection*{(c)}
+        Yo agregaría lo siguiente:
+        \\
+        $0 \leq e.pagina\_actual \leq e.paginas\_totales$
+
+\subsection*{Ejercicio 3}
+    \subsubsection*{(a)}
+        \texttt{Fecha}:
+        \begin{itemize}
+            \item \underline{Observadores}: \texttt{dia(), mes(), anio()}; 
+            \\
+            \underline{Constructores}: \texttt{Fecha(dia, mes, anio)}; 
+            \\
+            \underline{Modificadores}: \texttt{avanzar\_dia(), avanzar\_n\_dias(int n)};
+            \\
+            \underline{Otras operaciones}: \texttt{operator==(const Fecha \& f) const}
+            \item Cada observador devuelve justamente lo que indica su nombre.
+            \item \underline{Constructores}: como precondición se deben tener los tres parámetros positivos. \texttt{dia} debe estar entre 1 y 31 (asumiendo que todos los meses tienen 31 días), \texttt{mes} debe estar entre 1 y 12. Como postcondición se creará un objeto de tipo \texttt{Fecha}.
+            \\
+            \underline{Modificadores}: no hay precondición para el modificador \texttt{avanzar\_dia()}, y su postcondición será que la variable interna \texttt{\_dia} se incrementará en uno. Para el modificador \texttt{avanzar\_n\_dias(int n)} no existe precondición y se tiene como postcondición que \texttt{\_dia} aumentará en \texttt{n}.
+            \\
+            \underline{Otras operaciones}: devolverá \texttt{True} sólo si son iguales las variables internas \texttt{\_dia, \_mes, \_anio} con otra fecha.
+            \item Se deben tener los tres parámetros positivos. \texttt{dia} debe estar entre 1 y 31 (asumiendo que todos los meses tienen 31 días), \texttt{mes} debe estar entre 1 y 12.
+        \end{itemize}
+
+    \subsubsection*{(b)}
+        \texttt{Usuario}:
+        \begin{itemize}
+            \item \underline{Observadores}: \texttt{nombre(), edad()}; 
+            \\
+            \underline{Constructores}: \texttt{Usuario(string nombre, int edad)}; 
+            \\
+            \underline{Modificadores}: \texttt{agregar\_amigo(string nombre)};
+            \\
+            \underline{Otras operaciones}: \texttt{es\_amigo(string nombre), es\_popular()}
+            \item Cada observador devuelve justamente lo que indica su nombre.
+            \item \underline{Constructores}: como postcondición creará un objeto de tipo \texttt{Usuario}.
+            \\
+            \underline{Modificadores}: como postcondición se agrega un nuevo amigo a un Usuario.
+            \\
+            \underline{Otras operaciones}: \texttt{es\_amigo(string nombre)} será verdadero sólo si \texttt{nombre} está en el conjunto de amigos. \texttt{es\_popular()} será verdadero si tiene más de 10 amigos.
+            \item La variable interna \texttt{nombre} debe tener un tamaño mayor a cero y la variable interna \texttt{edad} también debe ser positiva.
+        \end{itemize}
+
+    \subsubsection*{(c)}
+        \texttt{Multiconjunto}:
+        \begin{itemize}
+            \item \underline{Observadores}: \texttt{cardinal(), contar\_apariciones(int e), cantidad\_elementos\_distintos()}; 
+            \\
+            \underline{Constructores}: \texttt{Multiconjunto()}; 
+            \\
+            \underline{Modificadores}: \texttt{agregar(int e), quitar(int e)}
+            \item Cada observador devuelve justamente lo que indica su nombre.
+            \item \underline{Constructores}: como postcondición se crea un multiconjunto vacío.
+            \\
+            \underline{Modificadores}: se agrega o se quita un elemento ya presente en el multiconjunto. El tamaño va a variar según la operación que se haga.
+            \item La variable interna \texttt{\_cantidad\_distintos} debe ser mayor o igual a cero.
+        \end{itemize}
+
+\subsection*{Ejercicio 4}
+    \subsubsection*{(a)}
+        I) El carrito puede soportar desde 0kg hasta infinito. No tiene sentido que el peso sea negativo.
+        \\
+        II) Los ítems presentes en el carrito no estarán repetidos.
+        
+        \textit{Es una pelotudez esto, ¿por qué no podrías llevar más de un elemento? Podría ser que lleven dos paquetes de arroz. BOLUDOS!}
+        \\
+        III) Todos los productos que están en \texttt{pesos\_items} estarán también en \texttt{precios\_por\_item}.
+        \\
+        IV) Todos los productos que están en \texttt{items} estarán representados como claves de \texttt{pesos\_items}.
+        \\
+        V) De manera inversa, si hay un producto como clave en \texttt{pesos\_items}, entonces estará también en \texttt{items}.
+        \\
+        VI) Si un producto está en \texttt{pesos\_items}, entonces su peso asociado será mayor a cero.
+        \\
+        VII) Si un producto está en \texttt{precios\_por\_item}, tendrá un precio asociado mayor a cero.
+        \\
+        VIII) El peso de todos los productos sumados debe ser menor o igual a \texttt{peso\_maximo}.
+
+    \subsubsection*{(b)}
+        I) Los pesos no siempre están representados en números enteros, pueden ser valores racionales también.
+        \\
+        II) Está mal esto porque la lista de los productos puede ser cero, pero lógicamente no puede ser negativo.
+        \\
+        III) \textit{Eh? Cómo que no?}
+
+    \subsubsection*{(c)}
+        Necesitan precondiciones los métodos:
+        \begin{itemize}
+            \item \texttt{peso\_de\_item(string nombre)}, ya que \texttt{nombre} debe estar presente en \texttt{items}.
+            \item \texttt{borrar\_item(string nombre)}, ya que \texttt{nombre} debe estar presente en \texttt{items}.
+            \item Lo mismo aplica para \texttt{agregar\_item(string nombre)}.
+        \end{itemize}
+
+\subsection*{Ejercicio 5}
+    \subsubsection*{(a)}
+        \begin{itemize}
+            \item Pertenece a la clase \texttt{Usuario}.
+            \item El tamaño de \texttt{nombre} debe ser mayor a cero, \texttt{edad} y \texttt{cantidad\_amigos} debe ser mayor a cero. Además, \texttt{cantidad\_amigos} es igual al cardinal de \texttt{amigos}.
+            \item \textit{Paja hacerlo. Otro día, maestro.}
+            \item \textit{Paja hacerlo. Otro día, maestro.}
+        \end{itemize}
+
+    \subsubsection*{(b)}
+        \begin{itemize}
+            \item Pertenece a la clase \texttt{Fecha}.
+            \item \texttt{dia\_del\_anio} debe estar contenido entre 1 y 364. \texttt{anio} debe ser un número mayor a cero.
+            \item \textit{Paja hacerlo. Otro día, maestro.}
+            \item \textit{Paja hacerlo. Otro día, maestro.}
+        \end{itemize}
+        
+    \subsubsection*{(c)}
+        \begin{itemize}
+            \item Pertenece a la clase \texttt{Carrito}.
+            \item \texttt{peso\_maximo} y \texttt{peso\_total} deben ser mayores a cero. Los valores asociados en los maps también deben ser positivos.
+            \item \textit{Paja hacerlo. Otro día, maestro.}
+            \item \textit{Paja hacerlo. Otro día, maestro.}
+        \end{itemize}
+
+    \subsubsection*{(d)}
+        \begin{itemize}
+            \item Pertenece a la clase \texttt{Multiconjunto}.
+            \item Los valores asociados en el map debe ser positivo.
+            \item \textit{Paja hacerlo. Otro día, maestro.}
+            \item \textit{Paja hacerlo. Otro día, maestro.}
+        \end{itemize}
+
+\subsection*{Ejercicio 6}
+    \subsubsection*{(a)}
+        No lo cumple.
+    \subsubsection*{(b)}
+        Sí lo cumple.
+    \subsubsection*{(c)}
+        No lo cumple. Hay que chequear si fue ingresado previamente al sistema o no.
+    \subsubsection*{(d)}
+        Sí lo cumple. De todas formas, no hice un análisis muy exhaustivo.
+
+\subsection*{Ejercicio 8}
+    \begin{itemize}
+        \item No es necesario, ya que las dos variables de la interfaz privada son strings.
+        \item No es necesario que los dos sean del mismo tamaño.
+        \item Los observadores de \texttt{C} son necesarios de ser incluidos, porque se pueden llegar a necesitar precondiciones.
+        \item No es necesario.
+        \item No es necesario.
+    \end{itemize}
+
+\subsection*{Ejercicio 9}
+    \subsubsection*{(a)}
+        Deben ser todas letras. No valen números ni caracteres vacíos.
+    \subsubsection*{(c)}
+        Es $O(N^{2})$ en peor caso: recorre todas las palabras, y además recorre todas las letras.
+    \subsubsection*{(d)}
+        No. Debería modificar el private.
+    \subsubsection*{(e)}
+        Debería haber una variable en la estructura que tenga la cantidad de vocales de cada palabra, y que, cada vez que se añada una palabra nueva, se registre.
+
+\end{document}
