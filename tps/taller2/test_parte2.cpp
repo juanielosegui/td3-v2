@@ -1,13 +1,14 @@
-#include <gtest/gtest.h>
-
 #include "lista.h"
+#include <gtest/gtest.h>
 
 using namespace std;
 
+/*
+    g++ test_parte[].cpp -lgtest -lgtest_main -lpthread -o test[]
+*/
 
 TEST(ListaGenerica, 01_lista_vacia) {
     Lista<int> lista;
-    
     EXPECT_EQ(0, lista.longitud());
 }
 
@@ -51,4 +52,3 @@ TEST(ListaGenerica, 04_tipo_de_datos_complejo) {
 
     EXPECT_EQ(p, l.iesimo(0));
 }
-
