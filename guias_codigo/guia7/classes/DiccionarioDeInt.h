@@ -3,6 +3,9 @@
 #ifndef DICCIONARIODEINT_H
 #define DICCIONARIODEINT_H
 
+#include <list>
+#include <stack>
+
 template <typename T>
 class DiccionarioDeInt
 {
@@ -13,6 +16,11 @@ class DiccionarioDeInt
         void definir(const int & clave, const T & valor);
         void borrar(const int & clave);
         ~DiccionarioDeInt();
+
+        //  added operation
+        std::list<int> aplanar_ordenado_v1() const;
+        std::list<int> aplanar_ordenado_v2() const;
+
     private:
         struct nodo
         {
