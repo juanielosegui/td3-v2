@@ -26,7 +26,7 @@ bool maxHeap_OK(const BST* raiz)
 }
 
 //  ----------------------------------------------------
-//  7)
+//  9)
 BST_2* insertar(BST_2* raiz, const int & elem)
 {
     //  if BST is empty, create the node
@@ -73,4 +73,29 @@ int contarMenoresA(const BST_2* raiz, const int & valor)
     //  I don't even know what the fuck I'm doing.
     //  Why on EARTH child_amt is even relevant? like I could just count them manually
     //  Fuck this topic though.
+}
+
+//  ----------------------------------------------------
+//  10)
+void multiplyBy(BST_3* raiz, const int & k)
+{
+    //  empty BST
+    if(raiz == nullptr) return;
+
+    //  multiply
+    raiz->value *= k;
+
+    //  divide
+    multiplyBy(raiz->leftChild, k);
+    multiplyBy(raiz->middleChild, k);
+    multiplyBy(raiz->rightChild, k);
+
+    //  this function covers only one base case. if the tree is empty,
+    //  there is no value to multiply, since there are no nodes.
+
+    //  if the tree is not empty, it multiplies the value assigned to
+    //  that node.
+
+    //  recursively, the function is summoned for every child the tree has,
+    //  and multiplying its values by k.
 }
