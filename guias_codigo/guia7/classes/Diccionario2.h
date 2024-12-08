@@ -1,7 +1,7 @@
 //  This is the header of the object "Diccionario".
 
 #include <list>
-#include <utility>
+#include <utility>  // Cambiado de <pair> a <utility>
 #include <stdexcept>
 
 #ifndef DICCIONARIO2_H
@@ -9,7 +9,6 @@
 
 template <typename T1, typename T2>
 // Asumir que el tipo T1 tiene operador de igualdad ==
-
 class Diccionario2
 {
     public:
@@ -34,7 +33,7 @@ class Diccionario2
     private:
         std::list<std::pair<T1,T2>> _claves_valores;
         //  new var
-        list<pair<T1,T2>>::iterator _iterador_al_ultimo;
+        typename std::list<std::pair<T1,T2>>::iterator _iterador_al_ultimo;
 };
 
 #endif

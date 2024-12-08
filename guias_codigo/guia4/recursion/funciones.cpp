@@ -174,6 +174,8 @@ bool mountain_vector(const vector<int> & v, const int & from, const int & to)
     int mid = from+(from-to)/2;
     bool left = mountain_vector(v, from, mid);
     bool right = mountain_vector(v, mid, to);
+
+    return true;
 }
 
 //  -----------------------------------------------------------------------------------------------------------

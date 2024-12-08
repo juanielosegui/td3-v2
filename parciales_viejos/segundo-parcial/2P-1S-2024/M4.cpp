@@ -72,6 +72,7 @@ std::vector<int> calcular_votos_por_candidato(const std::vector<int> & votos)
 std::list<std::list<int>> calcular_resultados(const std::vector<int> & votos_por_candidato, const int & V)
 {
     //  TODO: completarrrrr
+    return {};
 }
 
 struct Nodo

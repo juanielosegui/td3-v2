@@ -73,6 +73,7 @@ int contarMenoresA(const BST_2* raiz, const int & valor)
     //  I don't even know what the fuck I'm doing.
     //  Why on EARTH child_amt is even relevant? like I could just count them manually
     //  Fuck this topic though.
+    return -1;
 }
 
 //  ----------------------------------------------------

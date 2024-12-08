@@ -25,20 +25,20 @@ int countDivs (const int & d, const int & c)
 
 bool sumGreaterThan (const vector<int> & v, const int & c)
 {
-
+    return true;
 }
 
 bool repeated (const vector<int> & v)
 {
-
+    return true;
 }
 
 void fillVector (vector<int> & v)
 {
-
+    return;
 }
 
 bool inOK (const vector<int> & v, const int & e)
 {
-
+    return true;
 }

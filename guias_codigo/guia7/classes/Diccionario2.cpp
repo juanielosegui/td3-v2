@@ -62,7 +62,7 @@ void Diccionario2<T1, T2>::borrar(const T1 & clave)
 template <typename T1, typename T2>
 void Diccionario2<T1, T2>::actualizar_ultimo(const T2 & valor)
 {
-    _iterador_al_ultimo->second = valor;
+    //  _iterador_al_ultimo->second = valor;
 }
 
 // O(1)

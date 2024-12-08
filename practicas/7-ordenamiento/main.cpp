@@ -1,4 +1,6 @@
-#include <funciones.h>
+#include <iostream>
+#include <vector>
+
 
 // ---------------------------------------
 // 2)
@@ -22,3 +24,8 @@ bool deCuentas(const std::vector<int> & v)
 }
 
 // se hace en O(|v|^2?)
+
+int main()
+{
+    return 0;
+}
