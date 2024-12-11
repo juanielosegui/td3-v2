@@ -157,6 +157,70 @@ int masFrecuente(const std::vector<int> & v)
 
 }
 
+/*
+    Ejercicio 3: Generar el k-ésimo menor
+        Dado un arreglo de enteros v y un número k, escribir un programa que 
+            devuelva el k-ésimo elemento más pequeño de v con un tiempo de 
+            ejecución promedio perteneciente a O(∣v∣).
+        Justificar por qué este algoritmo cumple con dicha complejidad.
+*/
+
+int kEsimoMenor(const std::vector<int> & v, const int & k)
+{
+    //  Casos base:
+    if(v.size() == 0) return -1;
+    if(v.size() == 1) return v[0];
+
+    //  Busco el máximo para hacer el vector y usar counting sort
+    int maxElem = buscar_maximo(v);
+    std::vector<int> ctr(maxElem+1, 0);
+
+    //  Incremento los contadores
+    int i = 0;
+    while (i < v.size())
+    {
+        ctr[v[i]]++;
+        i++;
+    }
+
+    // Busco el k-ésimo menor
+    int j = 0; 
+    int aux = k;
+    while(j < ctr.size())
+    {
+        //  Si se encuentra un elemento, bajamos el contador para llegar
+        //      al k-esimo menor.
+        if(ctr[j] != 0) aux -= ctr[j];
+        //  Si llegamos al k-ésimo menor devolvemos ese número.
+        if(aux == 0) return j;
+        j++;
+    }
+
+/*
+    Sigue la consigna, tiene una complejidad en
+        peor caso de O(|v|). Usando el counting sort.
+*/  
+
+}
+
+/*
+    Ejercicio 4: Verificar si dos arreglos son anagramas
+        Dado dos arreglos de enteros, escribir un programa que determine si son 
+            anagramas entre sí (es decir, si tienen los mismos elementos con 
+            las mismas frecuencias) con un tiempo de ejecución de peor caso 
+            perteneciente a O(∣v1∣+∣v2∣).
+        Justificar por qué este algoritmo cumple con dicha complejidad.
+*/
+
+bool sonAnagramas(const std::vector<int> & v1, const std::vector<int> & v2)
+{
+    //  Tengo que hacer lo mismo que antes, literal, counting sort y
+    //      verificar si los ctr de cada uno son iguales.
+    if(v1 == v2) return true;
+    return true;
+}
+
+
 int main()
 {
     return 0;
