@@ -181,4 +181,164 @@
             \end{center} 
     \end{itemize}
 
+\newpage
+
+\section*{Ejercicio 3b}
+    \begin{center}
+        \includegraphics[width=0.7 \linewidth]{img/ej3b.png}
+    \end{center}
+    \begin{itemize}
+        \item \textbf{Definir el tamaño de entrada $n$.} \\
+            El tamaño de entrada es el tamaño del vector \texttt{|v|}. \(\implies n = |v|\)
+        \item \textbf{Identificar el peor caso de ejecución del programa.} \\
+            El peor caso es cuando todos los elementos del vector son pares. Esto implica que se van a sumar todos los elementos previos a un índice par.
+        \item \textbf{Escribir la función de costo temporal $\mathcal{T}(n)$ asociada al peor caso.} \\
+            En las primeras dos líneas se hacen dos operaciones, cuatro en total. \\
+            En la guarda del \texttt{while} se hacen cuatro operaciones: se accede a \texttt{i}, \texttt{v}, se hace la operación \texttt{.size()} y se hace una comparación. Todo lo que está en este scope se ejecuta $n$ veces.\\
+                En la condición del \texttt{if} se accede a dos variables, se le hace una operación y una comparación. Son, en total, cuatro operaciones. \\
+                    Se define la variable \texttt{j}, cuenta como una operación. \\
+                    En esta guarda del \texttt{while} se hacen tres operaciones porque se acceden a dos variables y se hace una comparación entre ellas. Todo lo que está en este scope se ejecuta $n$ veces. \\
+                        Se hacen cuatro operaciones, porque se accede a \texttt{suma}, \texttt{v} y \texttt{j} y se hace una operación entre ellas. No cuenta cuando se guarda de nuevo en \texttt{suma} porque es una variable que ya se accedió. \\
+                        Para incrementar \texttt{j}, se tuvo que acceder a la variable y sumarle uno. Son dos operaciones. \\
+                Se incrementa \texttt{i} en un total de dos operaciones. \\
+            Se devuelve \texttt{suma} en una sola operación. \\
+            \\
+            \(\mathcal{T}(n) = (2+2) + n(4+4+1 + n(3+4+2)+3+4+2)+1\) \\
+            \(\implies \mathcal{T}(n) = 4 + n(9 + n(9)+9)+1\) \\
+            \(\implies \mathcal{T}(n) = 4 + n(19 + 9n)\) \\
+            \(\implies \mathcal{T}(n) = 4 + 19n + 9n^{2}\) \\
+            \(\therefore \mathcal{T}(n) = 9n^{2}+19n+4\) \\
+        \item \textbf{Proponer un orden de complejidad $\mathcal{O}$ para $\mathcal{T}(n)$.} \\
+            \(\mathcal{T}(n) \in O(n^{2})\)
+        \item \textbf{Mostrar que $\mathcal{T}(n)$ pertenece al orden de complejidad propuesto.} \\
+            Quiero probar que \(0 \leq \mathcal{T}(n) \leq c \cdot O(n^{2}), (\forall n \geq n_{0})\). \\
+            \(\implies 0 \leq 9n^{2}+19n+4 \leq c \cdot n^{2}, (\forall n \geq n_{0})\) \\
+            \(\implies 0 \leq 9n^{2}+19n+4, (\forall n \geq n_{0})\) Vale, porque $9n^{2}+19n+4$ es una función creciente. \\
+            \(\implies 9n^{2}+19n+4 \leq c \cdot n^{2}, (\forall n \geq n_{0})\) \\
+            \(\implies \frac{9n^{2}+19n+4}{n^{2}} \leq c, (\forall n \geq n_{0})\) \\
+            \(\implies 9+\frac{19}{n_{0}}+\frac{4}{n_{0}^{2}} \leq c, (\forall n \geq n_{0})\) \\
+            Si tomo que \(n_{0} = 1 \wedge c = 32\): \\
+            \(\implies 9+\frac{19}{1}+\frac{4}{1^{2}} \leq 32, (\forall n \geq n_{0})\) \\
+            \(\implies 32 \leq 32, (\forall n \geq n_{0})\) Se cumple la desigualdad para todo $n \geq n_{0}$. \\
+            \begin{center}
+                \begin{tikzpicture}
+                    \begin{axis}[
+                        domain=0:2,             % Rango del eje x
+                        samples=100,            % Número de muestras para suavidad
+                        axis lines=middle,      % Dibujar los ejes en el centro
+                        xlabel={$n$},           % Etiqueta del eje x
+                        ylabel={},              % Etiqueta del eje y
+                        legend style={at={(1.05,1)}, anchor=north west}, % Posición de la leyenda
+                        width=10cm, height=7cm, % Tamaño del gráfico
+                        ]
+                        % Graficar la función T(n)
+                        \addplot[blue, thick] {9*x^2 + 19*x + 4};
+                        \addlegendentry{$\mathcal{T}(n) = 9n^{2}+19n+4$}
+                        
+                        % Graficar la función O(n)
+                        \addplot[red, thick, dashed] {32*x^2};
+                        \addlegendentry{$O(n) = 32n^2$}
+                    \end{axis}
+                \end{tikzpicture}                
+                \(\therefore \mathcal{T}(n) = 9n^{2}+19n+4 \in O(n^{2})\)
+            \end{center} 
+    \end{itemize}
+
+\newpage
+
+\section*{Análisis de funciones}
+    \subsection*{1. \(n \in O(n \cdot log(n))\)}
+        Quiero probar que \(0 \leq n \leq c \cdot O(n \cdot log(n)), (\forall n \geq n_{0})\). \\
+        \(\implies 0 \leq n, (\forall n \geq n_{0})\) vale, porque $n$ es una función creciente. \\
+        \(\implies n \leq c \cdot n \cdot log(n), (\forall n \geq n_{0})\) \\
+        \(\implies \frac{n_{0}}{n_{0} \cdot log(n_{0})} \leq c, (\forall n \geq n_{0})\) \\
+        \(\implies \frac{1}{log(n_{0})} \leq c, (\forall n \geq n_{0})\) \\
+        Si tomo que \(n_{0} = 2 \wedge c = 5\) se cumple la desigualdad \(\forall n \geq n_{0}\)\\
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    domain=0:10,             % Rango del eje x
+                    samples=100,            % Número de muestras para suavidad
+                    axis lines=middle,      % Dibujar los ejes en el centro
+                    xlabel={$n$},           % Etiqueta del eje x
+                    ylabel={},              % Etiqueta del eje y
+                    legend style={at={(1.05,1)}, anchor=north west}, % Posición de la leyenda
+                    width=10cm, height=7cm, % Tamaño del gráfico
+                    ]
+                    % Graficar la función T(n)
+                    \addplot[blue, thick] {x};
+                    \addlegendentry{$\mathcal{T}(n) = n$}
+                    
+                    % Graficar la función O(n)
+                    \addplot[red, thick, dashed] {5*x*(ln(x)/ln(10))};
+                    \addlegendentry{$O(n) = 5n \cdot log(n)$}
+                \end{axis}
+            \end{tikzpicture} \\              
+            \(\therefore\) Esta afirmación es verdadera.
+        \end{center} 
+    \subsection*{2. \(n^{2}-n+2 \in O(n^{2})\)}
+        Quiero probar que \(0 \leq n^{2}-n+2 \leq c \cdot O(n^{2}), (\forall n \geq n_{0})\). \\
+        \(\implies 0 \leq n^{2}-n+2, (\forall n \geq n_{0})\) vale porque $n^{2}-n+2$ es una función creciente y positiva para todo $n \geq 0$. \\
+        \(n^{2}-n+2 \leq c \cdot n^{2}, (\forall n \geq n_{0})\) \\
+        \(\frac{n_{0}^{2}-n_{0}+2}{n_{0}^{2}} \leq c, (\forall n \geq n_{0})\) \\
+        \(1-\frac{n_{0}}{n_{0}^{2}} + \frac{2}{n_{0}^{2}} \leq c, (\forall n \geq n_{0})\) \\
+        \(1-\frac{1}{n_{0}} + \frac{2}{n_{0}^{2}} \leq c, (\forall n \geq n_{0})\) \\
+        Si tomo que \(n_{0} = 1 \wedge c = 2\), se cumple la desigualdad para todo $n \geq n_{0}$. \\
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    domain=0:2,            % Rango del eje x
+                    samples=100,            % Número de muestras para suavidad
+                    axis lines=middle,      % Dibujar los ejes en el centro
+                    xlabel={$n$},           % Etiqueta del eje x
+                    ylabel={},              % Etiqueta del eje y
+                    legend style={at={(1.05,1)}, anchor=north west}, % Posición de la leyenda
+                    width=10cm, height=7cm, % Tamaño del gráfico
+                    ]
+                    % Graficar la función T(n)
+                    \addplot[blue, thick] {x^2-x+2};
+                    \addlegendentry{$\mathcal{T}(n) = n^{2}-n+2$}
+                    
+                    % Graficar la función O(n)
+                    \addplot[red, thick, dashed] {2*x^2};
+                    \addlegendentry{$O(n) = 2n^{2}$}
+                \end{axis}
+            \end{tikzpicture} \\           
+            \(\therefore\) Esta afirmación es verdadera.
+        \end{center}
+        
+\newpage
+
+\section*{Complejidad de algoritmos recursivos}
+    \begin{center}
+        \includegraphics[width=0.7 \linewidth]{img/algoritmos-recursivos.png}
+    \end{center}    
+    \begin{itemize}
+        \item \textbf{Definir el tamaño de entrada $n$.} \\
+            El tamaño de entrada es el tamaño del vector \texttt{v}. $\implies n = |v|$
+        \item \textbf{Identificar el peor caso de ejecución del programa.} \\
+            El peor caso sucede cuando la variable \texttt{hasta} es igual al tamaño de \texttt{v} y cuando \texttt{desde} es igual a cero. Esto implica que se quiere buscar el mínimo de todo el vector. Peor será el caso que tenga una ejecución con un vector \texttt{v} más grande.
+        \item \textbf{Escribir la ecuación de recurrencia $\mathcal{T}(n)$ asociada al peor caso.} \\
+            \(
+                \mathcal{T}(n) =
+                \begin{cases} 
+                  k & \text{si } n = 0, n = 1 \\
+                  2 \mathcal{T}(n/2) + k & \text{si } n > 1
+                \end{cases}
+            \)
+        \item \textbf{usar el árbol de recursión para dar una fórmula cerrada para $\mathcal{T}(n)$.} \\
+            \(\mathcal{T}(n) = 2^{i}\mathcal{T}(n/2^{i})+k(2^{i}-1)\)
+        \item \textbf{usando la fórmula cerrada, proponer un orden de complejidad $\mathcal{O}$ para $\mathcal{T}(n)$ y demostrar que pertenece.} \\
+            \(\mathcal{T}(n) \in O(n)\)\\
+            \(\implies 0 \leq 2kn - k \leq c \cdot n\) \\
+            \(\implies 2kn - k \leq c \cdot n\) \\
+            \(\implies \frac{2kn_{0} - k}{n_{0}} \leq c\) \\
+            \(\implies 2k -\frac{k}{n_{0}} \leq c\) \\
+            Si tomo que \(n_{0} = 1 \wedge c = k\), \\
+            \(\implies 2k -\frac{k}{1} \leq k\) \\
+            \(\implies k \leq k\) Se cumple \(\forall n > n_{0}\) \\
+            \(\therefore \mathcal{T}(n) \in O(n)\) \\
+            
+    \end{itemize}
+
 \end{document}
