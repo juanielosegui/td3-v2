@@ -1,0 +1,5 @@
+2
+cat1 2 4
+if else for va
+cat2 4 3
+hola como then

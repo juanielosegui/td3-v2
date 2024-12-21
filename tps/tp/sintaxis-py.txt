@@ -1,0 +1,11 @@
+5
+keywords 2 12
+if then else: for import def return elif None True False while
+tipos_basicos 3 6 
+int str float bool dict list
+separadores 4 7
+; { } [ ] ( )
+operadores 5 7
++ - * / == != %
+comentarios 6 1
+#

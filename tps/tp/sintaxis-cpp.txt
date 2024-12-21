@@ -1,0 +1,11 @@
+5
+keywords 2 7
+if then else for using namespace #include
+tipos_basicos 3 9 
+int float double bool unsigned void char char* char**
+separadores 4 7
+; { } [ ] ( )
+operadores 5 7
++ - * / == != %
+comentarios 6 3
+// /* */
